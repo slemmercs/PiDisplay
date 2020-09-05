@@ -54,7 +54,7 @@ choices = [
 ]
 
 # init GPIO
-GPIO.setmode(GPIO.BCM) 
+GPIO.setmode(GPIO.BCM)
 GPIO.setup(JS_U_PIN, GPIO.IN, pull_up_down=GPIO.PUD_UP) # Input with pull-up
 GPIO.setup(JS_D_PIN, GPIO.IN, pull_up_down=GPIO.PUD_UP) # Input with pull-up
 GPIO.setup(JS_L_PIN, GPIO.IN, pull_up_down=GPIO.PUD_UP) # Input with pull-up
@@ -141,7 +141,7 @@ def click_b2(channel):
 
 	if apIndx >= 0:
 		main_fun(998)
-		print ''.join(pwdLst) #TODO change password for real...
+		print (''.join(pwdLst)) #TODO change password for real...
 		start = stamp - SCREEN_SAVER + 5
 	else:
 		result = os.popen("iwlist {0} scan 2>/dev/null | grep '^..*ESSID:\"..*\"$' | sed 's/^.*ESSID:\"\\(..*\\)\".*$/\\1/'".format(iface)).read()
@@ -413,7 +413,7 @@ GPIO.add_event_detect(JS_R_PIN, GPIO.RISING, callback=select_h, bouncetime=200)
 GPIO.add_event_detect(JS_U_PIN, GPIO.RISING, callback=select_v, bouncetime=200)
 GPIO.add_event_detect(JS_D_PIN, GPIO.RISING, callback=select_v, bouncetime=200)
 
-iface = subprocess.check_output("iwgetid | awk '{print $1}'", shell = True).rstrip("\r\n")
+#iface = subprocess.check_output("iwgetid | awk '{print $1}'", shell = True).rstrip("\r\n")
 
 # Main Loop
 try:
@@ -424,6 +424,6 @@ try:
 		time.sleep(1)
 
 except:
-	print "Stopped", sys.exc_info()[0]
+	print ("Stopped", sys.exc_info()[0])
 	raise
 GPIO.cleanup()
