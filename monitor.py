@@ -32,7 +32,7 @@ BTN3_PIN = 16
 
 # Some constants
 SCREEN_LINES = 4
-SCREEN_SAVER = 20.0
+SCREEN_SAVER = 120.0
 CHAR_WIDTH = 19
 font = ImageFont.load_default()
 width = 128
@@ -70,7 +70,7 @@ device = sh1106(serial, rotate=2) #sh1106
 draw = ImageDraw.Draw(Image.new('1', (width, height)))
 draw.rectangle((0,0,width,height), outline=0, fill=0)
 
-state = 0 #System state: 0 - scrren is off; equal to channel number (e.g. BTN2_PIN, JS_P_PIN) otherwise
+state = 0 #System state: 0 - screen is off; equal to channel number (e.g. BTN2_PIN, JS_P_PIN) otherwise
 horz = 1 #Selection choice: 0 - Right; 1 - Left
 vert = 3 #Selection choice: 1 - Top; 2 - Middle; 3 - Bottom
 stamp = time.time() #Current timestamp
